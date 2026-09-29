@@ -5,86 +5,124 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     background: linear-gradient(180deg, #e2e0e0 0%, #eaebee 100%);
     color: #faeee4;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 36px;
+    padding: clamp(12px, 2.5vw, 18px) clamp(16px, 4vw, 36px);
     position: sticky;
     top: 0;
     background: #141414e5;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     z-index: 10;
+    width: 100%;
 }
+
 .logo {
-    margin-top: -10px;
-    margin-bottom: 40px;
-    width: 10px;
-    height: 10px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
 }
+
+.logo img {
+    height: clamp(36px, 6vw, 48px);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+}
+
 .logo:hover {
     color: #838382;
-    transition: 0.3s ease;
-    transform: scale(2);
+    transform: scale(1.08);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 4vw, 40px);
+    transition: transform 0.3s ease;
 }
 
 .nav-links a {
     color: #106fff;
-    margin-left: 50px;
     text-decoration: none;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    font-weight: 500;
     transition: color 0.2s ease;
+    white-space: nowrap;
 }
+
 .nav-links a:hover {
     color: #ada2a2;
 }
-.nav-links:hover{
-    transition: 0.5s ease;
-    transform: translateY(-3px)
+
+.nav-links:hover {
+    transform: translateY(-2px);
 }
 
 .hero {
-    padding: 80px 24px 40px;
+    padding: clamp(40px, 8vw, 80px) clamp(16px, 4vw, 24px) clamp(24px, 4vw, 40px);
     text-align: center;
     max-width: 940px;
+    width: 100%;
     margin: 0 auto;
 }
+
 .hero-copy {
     display: inline-block;
     text-align: left;
     background: rgb(73, 128, 211);
     border: 1px solid rgba(81, 120, 173, 0.507);
-    border-radius: 28px;
-    padding: 36px;
+    border-radius: clamp(20px, 4vw, 28px);
+    padding: clamp(24px, 5vw, 36px);
     box-shadow: 0 24px 50px rgba(204, 206, 211, 0.35);
+    width: 100%;
+    max-width: 100%;
 }
+
 .hero h1 {
-    font-size: clamp(2.4rem, 4vw, 4rem);
-    line-height: 1.05;
-    margin-bottom: 20px;
+    font-size: clamp(1.85rem, 5vw, 3.8rem);
+    line-height: 1.15;
+    margin-bottom: clamp(14px, 3vw, 20px);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
+
 .hero p {
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+    line-height: 1.7;
     color: #cbd5e1;
-    margin-bottom: 26px;
+    margin-bottom: clamp(20px, 4vw, 26px);
 }
 
 .btn {
     display: inline-block;
-    padding: 14px 28px;
+    padding: clamp(12px, 2.5vw, 14px) clamp(22px, 4vw, 28px);
     background: #20201ffd;
     color: #347ce7;
     border-radius: 999px;
     text-decoration: none;
     font-weight: 700;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
 }
+
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 10px rgb(170, 168, 166);
@@ -93,62 +131,100 @@ nav {
 .carousel {
     position: relative;
     max-width: 1000px;
-    margin: 30px auto 60px;
-    border-radius: 50px;
+    width: calc(100% - clamp(24px, 5vw, 48px));
+    margin: clamp(20px, 4vw, 30px) auto clamp(40px, 6vw, 60px);
+    border-radius: clamp(24px, 5vw, 40px);
     overflow: hidden;
-    box-shadow:  rgba(238, 239, 240, 0.4);
+    box-shadow: 0 10px 30px rgba(238, 239, 240, 0.4);
     background: #e6e7e9;
 }
+
 .carousel-inner {
     display: flex;
-    gap: 20px;
-    padding: 20px;
+    gap: clamp(14px, 3vw, 20px);
+    padding: clamp(14px, 3vw, 20px);
     width: max-content;
 }
+
 .slide {
     position: relative;
     flex: 0 0 auto;
-    width: min(320px, 80vw);
+    width: min(320px, 75vw);
     overflow: hidden;
-    border-radius: 28px;
+    border-radius: clamp(18px, 4vw, 28px);
 }
+
 .slide img {
     width: 100%;
-    height: 420px;
+    height: clamp(300px, 52vh, 420px);
     object-fit: cover;
     display: block;
+    transition: transform 0.5s ease;
 }
+
 .slide img:hover {
-    transition: 0.5s ease;
-    transform: translateY(-10px)
+    transform: translateY(-8px);
 }
 
 .caption {
     position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
+    left: clamp(12px, 3vw, 18px);
+    right: clamp(12px, 3vw, 18px);
+    bottom: clamp(12px, 3vw, 18px);
     color: #ffffff;
     backdrop-filter: blur(5px);
-    background: rgba(106, 150, 216, 0.507);
-    border: 1px solid rgba(148, 163, 184, 0.18);
-    border-radius: 20px;
-    padding: 18px 20px;
+    -webkit-backdrop-filter: blur(5px);
+    background: rgba(106, 150, 216, 0.65);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: clamp(14px, 3vw, 20px);
+    padding: clamp(12px, 3vw, 20px);
+    pointer-events: none;
 }
+
 .caption h2 {
-    font-size: 1.45rem;
-    margin-bottom: 8px;
+    font-size: clamp(1.15rem, 3.5vw, 1.45rem);
+    margin-bottom: 6px;
+    word-break: break-word;
 }
+
 .caption p {
     color: #cbd5e1;
-    line-height: 1.6;
+    line-height: 1.5;
+    font-size: clamp(0.85rem, 2.2vw, 0.95rem);
 }
 
 footer {
+    margin-top: auto;
     text-align: center;
-    padding: 26px 18px 42px;
+    padding: clamp(20px, 4vw, 26px) 18px clamp(30px, 5vw, 42px);
     color: #312c2c;
+    width: 100%;
 }
+
 footer p {
     margin-bottom: 8px;
+    font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+    word-break: break-word;
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        gap: 12px;
+    }
+    
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .hero-copy {
+        padding: 20px 18px;
+    }
+
+    .slide {
+        width: 72vw;
+    }
+
+    .btn {
+        width: 100%;
+    }
 }

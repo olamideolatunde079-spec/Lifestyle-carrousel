@@ -1,0 +1,8 @@
+{
+  "name": "Carousel Landing Page",
+  "description": "Discover a smooth, aesthetic carousel experience showcasing lifestyle and travel photography.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
